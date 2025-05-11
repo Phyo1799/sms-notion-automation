@@ -384,7 +384,8 @@ def process_sms():
                         'merchant': parsed_data['merchant'],
                         'amount': parsed_data['amount'],
                         'date': parsed_data['date'],
-                        'accounts': [get_account_name(acc_id) for acc_id in parsed_data['account_ids']]
+                        'accounts': [get_account_name(acc_id) for acc_id in parsed_data['account_ids']],
+                        'page_id': result.get('id')
                     }
                 })
             except Exception as e:
@@ -491,6 +492,53 @@ def test_parse():
 # Helper functions
 def get_account_name(account_id):
     return ACCOUNT_MAPPING.get(account_id, account_id)
+
+# Add this new route after the existing routes
+@app.route('/delete_entry', methods=['POST'])
+@login_required
+def delete_entry():
+    try:
+        data = request.get_json()
+        page_id = data.get('page_id')
+        
+        if not page_id:
+            return jsonify({
+                'success': False,
+                'error': 'No page ID provided'
+            }), 400
+
+        headers = {
+            'Authorization': f'Bearer {NOTION_API_KEY}',
+            'Notion-Version': '2022-06-28'
+        }
+
+        # Archive the page in Notion (soft delete)
+        response = requests.patch(
+            f'https://api.notion.com/v1/pages/{page_id}',
+            headers=headers,
+            json={
+                'archived': True
+            }
+        )
+
+        if response.status_code != 200:
+            logger.error(f"Notion API error: {response.status_code} - {response.text}")
+            return jsonify({
+                'success': False,
+                'error': f'Failed to delete entry: {response.text}'
+            }), 500
+
+        return jsonify({
+            'success': True,
+            'message': 'Entry deleted successfully'
+        })
+
+    except Exception as e:
+        logger.error(f"Error deleting entry: {str(e)}", exc_info=True)
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
 
 if __name__ == '__main__':
     try:
