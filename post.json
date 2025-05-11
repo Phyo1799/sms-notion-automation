@@ -1,0 +1,37 @@
+Authorization: Bearer YOUR_NOTION_API_KEY
+Content-Type: application/json
+Notion-Version: 2022-06-28
+
+
+{
+    "parent": {
+  "database_id": "d89a1b2bd6bd414abdb55ad021f9f467"
+    },
+    "properties": {
+        "Expense Name": {
+            "title": [
+                {
+                    "text": {
+                        "content": "test-automate"
+                    }
+                }
+            ]
+        },
+        "Amount": {
+            "number": 12
+        },
+        "Date": {
+            "date": {
+                "start": "2026-05-01"
+            }
+        },
+        "Accounts": {
+            "relation": [
+                {
+                    // ID From Bank Validation "e&money"
+                    "id": "1c374f2347e580ac90aed5e1e7a86e32"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,484 @@
+2025-05-11 18:16:26,371 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:16:26,403 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:16:26,411 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:16:26,621 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:16:26,621 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:16:26,642 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:16:30,254 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:16:30,267 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:16:30,450 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:16:30,450 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:16:37,350 - __main__ - DEBUG - Processing message: From HSBC: 27May25 Internet Banking Transfer from 023-509***-001 AED 3,000.00- Your available balance is AED 1,052.23
+2025-05-11 18:16:37,350 - __main__ - DEBUG - Parsing SMS: From HSBC: 27May25 Internet Banking Transfer from 023-509***-001 AED 3,000.00- Your available balance is AED 1,052.23
+2025-05-11 18:16:37,350 - __main__ - DEBUG - Detected HSBC message
+2025-05-11 18:16:37,350 - __main__ - DEBUG - Extracted amount: -3000.0
+2025-05-11 18:16:37,365 - __main__ - DEBUG - Extracted date: 2025-05-27
+2025-05-11 18:16:37,366 - __main__ - DEBUG - Final parsed data: amount=-3000.0, merchant=HSBC, date=2025-05-27, account_ids=['433e6ffadc44482e811c989bff9b9812']
+2025-05-11 18:16:37,367 - __main__ - DEBUG - Parsed data: {'amount': -3000.0, 'merchant': 'HSBC', 'date': '2025-05-27', 'account_ids': ['433e6ffadc44482e811c989bff9b9812']}
+2025-05-11 18:16:37,368 - __main__ - DEBUG - Sending request to Notion API with payload: {'parent': {'database_id': 'd89a1b2bd6bd414abdb55ad021f9f467'}, 'properties': {'Expense Name': {'title': [{'text': {'content': 'HSBC'}}]}, 'Amount': {'number': -3000.0}, 'Date': {'date': {'start': '2025-05-27'}}, 'Accounts': {'relation': [{'id': '433e6ffadc44482e811c989bff9b9812'}]}}}
+2025-05-11 18:16:37,380 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.notion.com:443
+2025-05-11 18:16:46,222 - urllib3.connectionpool - DEBUG - https://api.notion.com:443 "POST /v1/pages HTTP/1.1" 200 None
+2025-05-11 18:16:46,299 - __main__ - DEBUG - Notion API response: {'object': 'page', 'id': '1f074f23-47e5-8169-bb88-cb0b07079cd9', 'created_time': '2025-05-11T14:16:00.000Z', 'last_edited_time': '2025-05-11T14:16:00.000Z', 'created_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'last_edited_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'cover': None, 'icon': None, 'parent': {'type': 'database_id', 'database_id': 'd89a1b2b-d6bd-414a-bdb5-5ad021f9f467'}, 'archived': False, 'in_trash': False, 'properties': {'Expense This Month': {'id': '%3BQ%5Bo', 'type': 'formula', 'formula': {'type': 'number', 'number': -3000}}, '$ ': {'id': '%3DMHj', 'type': 'formula', 'formula': {'type': 'number', 'number': -817.44}}, 'Note': {'id': '%40mX%3D', 'type': 'rich_text', 'rich_text': []}, 'Record': {'id': 'J%7DN%7B', 'type': 'files', 'files': []}, 'month': {'id': 'WIBt', 'type': 'formula', 'formula': {'type': 'string', 'string': 'May'}}, 'Expense Type': {'id': 'X%3FRz', 'type': 'relation', 'relation': [], 'has_more': False}, 'Expense Last Month': {'id': '%5CG%3Ek', 'type': 'formula', 'formula': {'type': 'number', 'number': 0}}, 'Amount': {'id': 'pyo~', 'type': 'number', 'number': -3000}, 'Accounts': {'id': 'xM%40_', 'type': 'relation', 'relation': [{'id': '433e6ffa-dc44-482e-811c-989bff9b9812'}], 'has_more': False}, 'Date': {'id': '%7Cwiz', 'type': 'date', 'date': {'start': '2025-05-27', 'end': None, 'time_zone': None}}, 'Expense Name': {'id': 'title', 'type': 'title', 'title': [{'type': 'text', 'text': {'content': 'HSBC', 'link': None}, 'annotations': {'bold': False, 'italic': False, 'strikethrough': False, 'underline': False, 'code': False, 'color': 'default'}, 'plain_text': 'HSBC', 'href': None}]}, 'Need/Want': {'id': '6dbd536d-8bd3-4082-aea1-4dfa6356258f', 'type': 'select', 'select': None}, 'Status': {'id': '9c0c1150-1553-4c5e-a8ac-cfb788397c5b', 'type': 'status', 'status': {'id': 'd044e0b4-9db1-4b13-a839-ce084a9e3792', 'name': 'To Pay', 'color': 'green'}}}, 'url': 'https://www.notion.so/HSBC-1f074f2347e58169bb88cb0b07079cd9', 'public_url': None, 'request_id': 'aec9ede4-2707-497e-bba2-568f2329def7'}
+2025-05-11 18:16:46,304 - __main__ - ERROR - Get account name error: name 'ACCOUNT_MAPPING' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Windows 11\OneDrive\Laptop\Github\notion-automation\app.py", line 375, in get_account_name
+    return ACCOUNT_MAPPING.get(account_id, account_id)
+           ^^^^^^^^^^^^^^^
+NameError: name 'ACCOUNT_MAPPING' is not defined
+
+2025-05-11 18:16:46,307 - werkzeug - INFO - 192.168.1.99 - - [11/May/2025 18:16:46] "POST /process HTTP/1.1" 200 -
+2025-05-11 18:16:51,424 - __main__ - DEBUG - Processing message: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction�ID:�142616666
+2025-05-11 18:16:51,425 - __main__ - DEBUG - Parsing SMS: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction�ID:�142616666
+2025-05-11 18:16:51,426 - __main__ - DEBUG - Detected e&money message
+2025-05-11 18:16:51,427 - __main__ - DEBUG - Extracted amount: 7.0
+2025-05-11 18:16:51,427 - __main__ - DEBUG - Extracted merchant: DUNKIN
+2025-05-11 18:16:51,428 - __main__ - DEBUG - Extracted date: 2025-05-10
+2025-05-11 18:16:51,429 - __main__ - DEBUG - Final parsed data: amount=7.0, merchant=DUNKIN, date=2025-05-10, account_ids=['1c374f2347e580ac90aed5e1e7a86e32']
+2025-05-11 18:16:51,430 - __main__ - DEBUG - Parsed data: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:16:51,431 - __main__ - DEBUG - Sending request to Notion API with payload: {'parent': {'database_id': 'd89a1b2bd6bd414abdb55ad021f9f467'}, 'properties': {'Expense Name': {'title': [{'text': {'content': 'DUNKIN'}}]}, 'Amount': {'number': 7.0}, 'Date': {'date': {'start': '2025-05-10'}}, 'Accounts': {'relation': [{'id': '1c374f2347e580ac90aed5e1e7a86e32'}]}}}
+2025-05-11 18:16:51,437 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.notion.com:443
+2025-05-11 18:16:53,303 - urllib3.connectionpool - DEBUG - https://api.notion.com:443 "POST /v1/pages HTTP/1.1" 200 None
+2025-05-11 18:16:53,307 - __main__ - DEBUG - Notion API response: {'object': 'page', 'id': '1f074f23-47e5-8195-a064-c9e0abfb7090', 'created_time': '2025-05-11T14:16:00.000Z', 'last_edited_time': '2025-05-11T14:16:00.000Z', 'created_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'last_edited_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'cover': None, 'icon': None, 'parent': {'type': 'database_id', 'database_id': 'd89a1b2b-d6bd-414a-bdb5-5ad021f9f467'}, 'archived': False, 'in_trash': False, 'properties': {'Expense This Month': {'id': '%3BQ%5Bo', 'type': 'formula', 'formula': {'type': 'number', 'number': 7}}, '$ ': {'id': '%3DMHj', 'type': 'formula', 'formula': {'type': 'number', 'number': 1.91}}, 'Note': {'id': '%40mX%3D', 'type': 'rich_text', 'rich_text': []}, 'Record': {'id': 'J%7DN%7B', 'type': 'files', 'files': []}, 'month': {'id': 'WIBt', 'type': 'formula', 'formula': {'type': 'string', 'string': 'May'}}, 'Expense Type': {'id': 'X%3FRz', 'type': 'relation', 'relation': [], 'has_more': False}, 'Expense Last Month': {'id': '%5CG%3Ek', 'type': 'formula', 'formula': {'type': 'number', 'number': 0}}, 'Amount': {'id': 'pyo~', 'type': 'number', 'number': 7}, 'Accounts': {'id': 'xM%40_', 'type': 'relation', 'relation': [{'id': '1c374f23-47e5-80ac-90ae-d5e1e7a86e32'}], 'has_more': False}, 'Date': {'id': '%7Cwiz', 'type': 'date', 'date': {'start': '2025-05-10', 'end': None, 'time_zone': None}}, 'Expense Name': {'id': 'title', 'type': 'title', 'title': [{'type': 'text', 'text': {'content': 'DUNKIN', 'link': None}, 'annotations': {'bold': False, 'italic': False, 'strikethrough': False, 'underline': False, 'code': False, 'color': 'default'}, 'plain_text': 'DUNKIN', 'href': None}]}, 'Need/Want': {'id': '6dbd536d-8bd3-4082-aea1-4dfa6356258f', 'type': 'select', 'select': None}, 'Status': {'id': '9c0c1150-1553-4c5e-a8ac-cfb788397c5b', 'type': 'status', 'status': {'id': 'd044e0b4-9db1-4b13-a839-ce084a9e3792', 'name': 'To Pay', 'color': 'green'}}}, 'url': 'https://www.notion.so/DUNKIN-1f074f2347e58195a064c9e0abfb7090', 'public_url': None, 'request_id': 'b31b96f5-ac5b-4213-b9f6-a1cd9ecc0000'}
+2025-05-11 18:16:53,312 - __main__ - ERROR - Get account name error: name 'ACCOUNT_MAPPING' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Windows 11\OneDrive\Laptop\Github\notion-automation\app.py", line 375, in get_account_name
+    return ACCOUNT_MAPPING.get(account_id, account_id)
+           ^^^^^^^^^^^^^^^
+NameError: name 'ACCOUNT_MAPPING' is not defined
+
+2025-05-11 18:16:53,314 - werkzeug - INFO - 192.168.1.99 - - [11/May/2025 18:16:53] "POST /process HTTP/1.1" 200 -
+2025-05-11 18:17:39,285 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:17:39,844 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:17:40,424 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:17:40,438 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:17:40,447 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:17:40,968 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:17:40,985 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:17:40,999 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:17:44,529 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:17:44,530 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:17:45,298 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:17:45,298 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:17:45,781 - werkzeug - INFO - 192.168.1.99 - - [11/May/2025 18:17:45] "GET / HTTP/1.1" 200 -
+2025-05-11 18:17:45,931 - werkzeug - INFO - 192.168.1.99 - - [11/May/2025 18:17:45] "GET /qr HTTP/1.1" 200 -
+2025-05-11 18:17:51,577 - __main__ - DEBUG - Processing message: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction�ID:�142616666
+2025-05-11 18:17:51,578 - __main__ - DEBUG - Parsing SMS: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction�ID:�142616666
+2025-05-11 18:17:51,580 - __main__ - DEBUG - Detected e&money message
+2025-05-11 18:17:51,581 - __main__ - DEBUG - Extracted amount: 7.0
+2025-05-11 18:17:51,582 - __main__ - DEBUG - Extracted merchant: DUNKIN
+2025-05-11 18:17:51,583 - __main__ - DEBUG - Extracted date: 2025-05-10
+2025-05-11 18:17:51,584 - __main__ - DEBUG - Final parsed data: amount=7.0, merchant=DUNKIN, date=2025-05-10, account_ids=['1c374f2347e580ac90aed5e1e7a86e32']
+2025-05-11 18:17:51,584 - __main__ - DEBUG - Parsed data: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:17:51,585 - __main__ - DEBUG - Sending request to Notion API with payload: {'parent': {'database_id': 'd89a1b2bd6bd414abdb55ad021f9f467'}, 'properties': {'Expense Name': {'title': [{'text': {'content': 'DUNKIN'}}]}, 'Amount': {'number': 7.0}, 'Date': {'date': {'start': '2025-05-10'}}, 'Accounts': {'relation': [{'id': '1c374f2347e580ac90aed5e1e7a86e32'}]}}}
+2025-05-11 18:17:51,596 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.notion.com:443
+2025-05-11 18:17:55,087 - urllib3.connectionpool - DEBUG - https://api.notion.com:443 "POST /v1/pages HTTP/1.1" 200 None
+2025-05-11 18:17:55,092 - __main__ - DEBUG - Notion API response: {'object': 'page', 'id': '1f074f23-47e5-817c-ae0e-eb174bd8e773', 'created_time': '2025-05-11T14:17:00.000Z', 'last_edited_time': '2025-05-11T14:17:00.000Z', 'created_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'last_edited_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'cover': None, 'icon': None, 'parent': {'type': 'database_id', 'database_id': 'd89a1b2b-d6bd-414a-bdb5-5ad021f9f467'}, 'archived': False, 'in_trash': False, 'properties': {'Expense This Month': {'id': '%3BQ%5Bo', 'type': 'formula', 'formula': {'type': 'number', 'number': 7}}, '$ ': {'id': '%3DMHj', 'type': 'formula', 'formula': {'type': 'number', 'number': 1.91}}, 'Note': {'id': '%40mX%3D', 'type': 'rich_text', 'rich_text': []}, 'Record': {'id': 'J%7DN%7B', 'type': 'files', 'files': []}, 'month': {'id': 'WIBt', 'type': 'formula', 'formula': {'type': 'string', 'string': 'May'}}, 'Expense Type': {'id': 'X%3FRz', 'type': 'relation', 'relation': [], 'has_more': False}, 'Expense Last Month': {'id': '%5CG%3Ek', 'type': 'formula', 'formula': {'type': 'number', 'number': 0}}, 'Amount': {'id': 'pyo~', 'type': 'number', 'number': 7}, 'Accounts': {'id': 'xM%40_', 'type': 'relation', 'relation': [{'id': '1c374f23-47e5-80ac-90ae-d5e1e7a86e32'}], 'has_more': False}, 'Date': {'id': '%7Cwiz', 'type': 'date', 'date': {'start': '2025-05-10', 'end': None, 'time_zone': None}}, 'Expense Name': {'id': 'title', 'type': 'title', 'title': [{'type': 'text', 'text': {'content': 'DUNKIN', 'link': None}, 'annotations': {'bold': False, 'italic': False, 'strikethrough': False, 'underline': False, 'code': False, 'color': 'default'}, 'plain_text': 'DUNKIN', 'href': None}]}, 'Need/Want': {'id': '6dbd536d-8bd3-4082-aea1-4dfa6356258f', 'type': 'select', 'select': None}, 'Status': {'id': '9c0c1150-1553-4c5e-a8ac-cfb788397c5b', 'type': 'status', 'status': {'id': 'd044e0b4-9db1-4b13-a839-ce084a9e3792', 'name': 'To Pay', 'color': 'green'}}}, 'url': 'https://www.notion.so/DUNKIN-1f074f2347e5817cae0eeb174bd8e773', 'public_url': None, 'request_id': '1a10d9e0-6725-41db-a333-e859667ca2c5'}
+2025-05-11 18:17:55,095 - __main__ - DEBUG - Mapping account ID 1c374f2347e580ac90aed5e1e7a86e32 to name: E&money
+2025-05-11 18:17:55,097 - werkzeug - INFO - 192.168.1.99 - - [11/May/2025 18:17:55] "POST /process HTTP/1.1" 200 -
+2025-05-11 18:19:35,897 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:19:35] "GET / HTTP/1.1" 200 -
+2025-05-11 18:19:35,919 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:19:35] "GET /qr HTTP/1.1" 200 -
+2025-05-11 18:19:39,131 - __main__ - DEBUG - Processing message: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction ID: 142616666
+2025-05-11 18:19:39,132 - __main__ - DEBUG - Parsing SMS: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction ID: 142616666
+2025-05-11 18:19:39,134 - __main__ - DEBUG - Detected e&money message
+2025-05-11 18:19:39,134 - __main__ - DEBUG - Extracted amount: 7.0
+2025-05-11 18:19:39,135 - __main__ - DEBUG - Extracted merchant: DUNKIN
+2025-05-11 18:19:39,135 - __main__ - DEBUG - Extracted date: 2025-05-10
+2025-05-11 18:19:39,135 - __main__ - DEBUG - Final parsed data: amount=7.0, merchant=DUNKIN, date=2025-05-10, account_ids=['1c374f2347e580ac90aed5e1e7a86e32']
+2025-05-11 18:19:39,136 - __main__ - DEBUG - Parsed data: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:19:39,137 - __main__ - DEBUG - Sending request to Notion API with payload: {'parent': {'database_id': 'd89a1b2bd6bd414abdb55ad021f9f467'}, 'properties': {'Expense Name': {'title': [{'text': {'content': 'DUNKIN'}}]}, 'Amount': {'number': 7.0}, 'Date': {'date': {'start': '2025-05-10'}}, 'Accounts': {'relation': [{'id': '1c374f2347e580ac90aed5e1e7a86e32'}]}}}
+2025-05-11 18:19:39,141 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.notion.com:443
+2025-05-11 18:19:40,619 - urllib3.connectionpool - DEBUG - https://api.notion.com:443 "POST /v1/pages HTTP/1.1" 200 None
+2025-05-11 18:19:40,623 - __main__ - DEBUG - Notion API response: {'object': 'page', 'id': '1f074f23-47e5-8178-b20b-cadc60b543a5', 'created_time': '2025-05-11T14:19:00.000Z', 'last_edited_time': '2025-05-11T14:19:00.000Z', 'created_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'last_edited_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'cover': None, 'icon': None, 'parent': {'type': 'database_id', 'database_id': 'd89a1b2b-d6bd-414a-bdb5-5ad021f9f467'}, 'archived': False, 'in_trash': False, 'properties': {'Expense This Month': {'id': '%3BQ%5Bo', 'type': 'formula', 'formula': {'type': 'number', 'number': 7}}, '$ ': {'id': '%3DMHj', 'type': 'formula', 'formula': {'type': 'number', 'number': 1.91}}, 'Note': {'id': '%40mX%3D', 'type': 'rich_text', 'rich_text': []}, 'Record': {'id': 'J%7DN%7B', 'type': 'files', 'files': []}, 'month': {'id': 'WIBt', 'type': 'formula', 'formula': {'type': 'string', 'string': 'May'}}, 'Expense Type': {'id': 'X%3FRz', 'type': 'relation', 'relation': [], 'has_more': False}, 'Expense Last Month': {'id': '%5CG%3Ek', 'type': 'formula', 'formula': {'type': 'number', 'number': 0}}, 'Amount': {'id': 'pyo~', 'type': 'number', 'number': 7}, 'Accounts': {'id': 'xM%40_', 'type': 'relation', 'relation': [{'id': '1c374f23-47e5-80ac-90ae-d5e1e7a86e32'}], 'has_more': False}, 'Date': {'id': '%7Cwiz', 'type': 'date', 'date': {'start': '2025-05-10', 'end': None, 'time_zone': None}}, 'Expense Name': {'id': 'title', 'type': 'title', 'title': [{'type': 'text', 'text': {'content': 'DUNKIN', 'link': None}, 'annotations': {'bold': False, 'italic': False, 'strikethrough': False, 'underline': False, 'code': False, 'color': 'default'}, 'plain_text': 'DUNKIN', 'href': None}]}, 'Need/Want': {'id': '6dbd536d-8bd3-4082-aea1-4dfa6356258f', 'type': 'select', 'select': None}, 'Status': {'id': '9c0c1150-1553-4c5e-a8ac-cfb788397c5b', 'type': 'status', 'status': {'id': 'd044e0b4-9db1-4b13-a839-ce084a9e3792', 'name': 'To Pay', 'color': 'green'}}}, 'url': 'https://www.notion.so/DUNKIN-1f074f2347e58178b20bcadc60b543a5', 'public_url': None, 'request_id': '57741079-fd1f-46bc-9dee-e55e00f8b9b3'}
+2025-05-11 18:19:40,628 - __main__ - DEBUG - Mapping account ID 1c374f2347e580ac90aed5e1e7a86e32 to name: E&money
+2025-05-11 18:19:40,629 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:19:40] "POST /process HTTP/1.1" 200 -
+2025-05-11 18:20:56,588 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:20:56,671 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:20:57,750 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:20:57,750 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:20:57,765 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:20:57,766 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:20:57,772 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:20:57,772 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:21:01,776 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:21:01,779 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:21:01,796 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:21:01,796 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:22:47,165 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:22:48,420 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:22:48,535 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:22:48,568 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:22:48,580 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:22:49,578 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:22:49,595 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:22:49,615 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:22:52,828 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:22:52,828 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:22:53,767 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:22:53,767 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:24:39,970 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:24:40,663 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:24:41,291 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:24:41,307 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:24:41,318 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:24:41,934 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:24:41,950 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:24:41,955 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:24:45,554 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:24:45,570 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:24:45,947 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:24:45,947 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:24:48,172 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:24:49,357 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:24:49,376 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:24:49,383 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:24:49,765 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:24:50,714 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:24:50,735 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:24:50,736 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:24:53,530 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:24:53,530 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:24:54,788 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:24:54,789 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:25:22,406 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:25:23,489 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:25:23,489 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:25:23,507 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:25:23,508 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:25:24,754 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:25:24,754 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:25:24,754 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:30:42,135 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:30:42,167 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:30:42,168 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:31:36,032 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:31:36,051 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:31:36,053 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:32:00,869 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:32:00] "GET / HTTP/1.1" 200 -
+2025-05-11 18:32:00,917 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:32:00] "GET /qr HTTP/1.1" 200 -
+2025-05-11 18:35:43,505 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:35:43,520 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:35:43,521 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:35:47,744 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:35:47] "GET / HTTP/1.1" 200 -
+2025-05-11 18:39:05,435 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:05] "GET / HTTP/1.1" 200 -
+2025-05-11 18:39:05,478 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:05] "GET /qr HTTP/1.1" 200 -
+2025-05-11 18:39:07,128 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:07] "GET / HTTP/1.1" 200 -
+2025-05-11 18:39:08,523 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:08] "GET / HTTP/1.1" 200 -
+2025-05-11 18:39:09,607 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:09] "GET / HTTP/1.1" 200 -
+2025-05-11 18:39:44,433 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:44] "GET / HTTP/1.1" 200 -
+2025-05-11 18:39:45,983 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:45] "GET / HTTP/1.1" 200 -
+2025-05-11 18:39:47,482 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:47] "GET / HTTP/1.1" 200 -
+2025-05-11 18:39:59,972 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:39:59] "GET / HTTP/1.1" 200 -
+2025-05-11 18:40:34,228 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:40:34,242 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:40:34,243 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:40:36,294 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:40:36] "GET / HTTP/1.1" 200 -
+2025-05-11 18:40:36,847 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:40:36] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:40:44,880 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:40:44] "GET / HTTP/1.1" 200 -
+2025-05-11 18:40:44,933 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:40:44] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:40:47,262 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:40:47] "GET / HTTP/1.1" 200 -
+2025-05-11 18:40:47,309 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:40:47] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:40:57,430 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:40:57] "GET / HTTP/1.1" 200 -
+2025-05-11 18:40:57,472 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:40:57] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:41:05,542 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:05] "GET / HTTP/1.1" 200 -
+2025-05-11 18:41:05,583 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:05] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:41:27,824 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:27] "GET / HTTP/1.1" 200 -
+2025-05-11 18:41:27,968 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:27] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:41:48,709 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:48] "GET / HTTP/1.1" 200 -
+2025-05-11 18:41:48,759 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:48] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:41:51,790 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:51] "GET / HTTP/1.1" 200 -
+2025-05-11 18:41:51,839 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:51] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:41:52,810 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:52] "GET / HTTP/1.1" 200 -
+2025-05-11 18:41:52,846 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:52] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:41:53,921 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:53] "GET / HTTP/1.1" 200 -
+2025-05-11 18:41:53,954 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:53] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:41:55,103 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:55] "GET / HTTP/1.1" 200 -
+2025-05-11 18:41:55,136 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:41:55] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:11,997 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:11] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:12,123 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:12] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:13,489 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:13] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:13,527 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:13] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:15,119 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:15] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:15,169 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:15] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:16,449 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:16] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:16,495 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:16] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:17,530 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:17] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:17,567 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:17] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:18,464 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:18] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:18,506 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:18] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:31,712 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:42:31,726 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:42:31,727 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:42:45,784 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:45] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:45,918 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:45] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:49,459 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:49] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:49,499 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:49] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:50,196 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:50] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:50,251 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:50] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:50,990 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:50] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:51,038 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:51] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:55,628 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:55] "GET / HTTP/1.1" 200 -
+2025-05-11 18:42:55,670 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:55] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:42:58,640 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:42:58] "[33mPOST /send_sms HTTP/1.1[0m" 404 -
+2025-05-11 18:43:02,864 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:43:02] "GET / HTTP/1.1" 200 -
+2025-05-11 18:43:02,910 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:43:02] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:43:04,492 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:43:04] "GET / HTTP/1.1" 200 -
+2025-05-11 18:43:04,540 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:43:04] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:44:50,010 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:44:50] "GET / HTTP/1.1" 200 -
+2025-05-11 18:44:50,050 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:44:50] "GET /qr HTTP/1.1" 200 -
+2025-05-11 18:44:50,180 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:44:50] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:44:52,199 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:44:52] "GET / HTTP/1.1" 200 -
+2025-05-11 18:44:52,242 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:44:52] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:45:01,011 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:45:01,028 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:45:01,029 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:45:02,677 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:02] "GET / HTTP/1.1" 200 -
+2025-05-11 18:45:02,709 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:02] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:45:04,046 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:04] "GET / HTTP/1.1" 200 -
+2025-05-11 18:45:04,089 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:04] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:45:05,318 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:05] "GET / HTTP/1.1" 200 -
+2025-05-11 18:45:05,359 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:05] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:45:06,034 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:06] "GET / HTTP/1.1" 200 -
+2025-05-11 18:45:06,083 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:06] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:45:06,220 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:06] "GET / HTTP/1.1" 200 -
+2025-05-11 18:45:06,264 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:06] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:45:06,386 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:06] "GET / HTTP/1.1" 200 -
+2025-05-11 18:45:06,435 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:06] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:45:10,359 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:10] "[33mPOST /send_sms HTTP/1.1[0m" 404 -
+2025-05-11 18:45:12,316 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:12] "GET / HTTP/1.1" 200 -
+2025-05-11 18:45:12,358 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:12] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:45:16,051 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:16] "GET / HTTP/1.1" 200 -
+2025-05-11 18:45:16,086 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:45:16] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:46:48,703 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:46:48] "GET / HTTP/1.1" 200 -
+2025-05-11 18:46:48,844 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:46:48] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:46:50,163 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:46:50] "GET / HTTP/1.1" 200 -
+2025-05-11 18:46:50,196 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:46:50] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:46:58,833 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:46:58,856 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:46:58,856 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:46:59,783 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:46:59] "GET / HTTP/1.1" 200 -
+2025-05-11 18:46:59,832 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:46:59] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:47:01,188 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:01] "GET / HTTP/1.1" 200 -
+2025-05-11 18:47:01,229 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:01] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:47:03,251 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:03] "GET / HTTP/1.1" 200 -
+2025-05-11 18:47:03,302 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:03] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:47:08,326 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:08] "GET / HTTP/1.1" 200 -
+2025-05-11 18:47:08,363 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:08] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:47:09,407 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:09] "GET / HTTP/1.1" 200 -
+2025-05-11 18:47:09,452 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:09] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:47:16,070 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:16] "GET / HTTP/1.1" 200 -
+2025-05-11 18:47:16,108 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:16] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:47:24,253 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:47:24] "[33mPOST /send_sms HTTP/1.1[0m" 404 -
+2025-05-11 18:48:10,783 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:48:10,806 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:48:10,807 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:48:13,069 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:48:13] "GET / HTTP/1.1" 200 -
+2025-05-11 18:48:13,220 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:48:13] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:48:14,917 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:48:14] "GET / HTTP/1.1" 200 -
+2025-05-11 18:48:14,955 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:48:14] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:48:20,530 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:48:20] "GET / HTTP/1.1" 200 -
+2025-05-11 18:48:20,574 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:48:20] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:49:33,445 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:49:33] "GET / HTTP/1.1" 200 -
+2025-05-11 18:49:33,585 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:49:33] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:49:34,819 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:49:34] "GET / HTTP/1.1" 200 -
+2025-05-11 18:49:34,858 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:49:34] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:49:46,620 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:49:46,634 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:49:46,636 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:49:46,938 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:49:46] "GET / HTTP/1.1" 200 -
+2025-05-11 18:49:46,978 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:49:46] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:49:48,320 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:49:48] "GET / HTTP/1.1" 200 -
+2025-05-11 18:49:48,355 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:49:48] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:50:21,972 - __main__ - INFO - Starting application on 192.168.1.99:8080
+2025-05-11 18:50:21,983 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:50:21,984 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:50:22,704 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:22] "GET / HTTP/1.1" 200 -
+2025-05-11 18:50:22,750 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:22] "GET /qr HTTP/1.1" 200 -
+2025-05-11 18:50:22,870 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:22] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:50:24,230 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:24] "GET / HTTP/1.1" 200 -
+2025-05-11 18:50:24,266 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:24] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:50:32,792 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:32] "GET / HTTP/1.1" 200 -
+2025-05-11 18:50:32,824 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:32] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:50:34,959 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:34] "GET / HTTP/1.1" 200 -
+2025-05-11 18:50:35,000 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:35] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:50:35,501 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:35] "GET / HTTP/1.1" 200 -
+2025-05-11 18:50:35,535 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:35] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:50:36,235 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:36] "GET / HTTP/1.1" 200 -
+2025-05-11 18:50:36,275 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:50:36] "[33mGET /messages HTTP/1.1[0m" 404 -
+2025-05-11 18:57:45,330 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:57:45,340 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:57:48,605 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:57:48,607 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:57:50,333 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:57:51,264 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:57:51,270 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:57:55,083 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:57:55,085 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:57:56,735 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:57:57,615 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:57:57,620 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:58:01,597 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:58:01,599 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:58:19,207 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:58:20,301 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:58:20,308 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:58:24,594 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:58:24,596 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:58:26,344 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:58:27,282 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:58:27,288 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:58:30,768 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:58:30,769 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:58:56,956 - __main__ - DEBUG - Processing message: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction ID: 142616666
+2025-05-11 18:58:56,958 - __main__ - DEBUG - Starting SMS parsing for text: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction ID: 142616666
+2025-05-11 18:58:56,959 - __main__ - DEBUG - Detected e&money message
+2025-05-11 18:58:56,962 - __main__ - DEBUG - Extracted amount: 7.0
+2025-05-11 18:58:56,963 - __main__ - DEBUG - Extracted merchant: DUNKIN
+2025-05-11 18:58:56,968 - __main__ - DEBUG - Extracted date using format %Y-%m-%d: 2025-05-10
+2025-05-11 18:58:56,969 - __main__ - DEBUG - Added E&money account ID
+2025-05-11 18:58:56,970 - __main__ - DEBUG - Final parsed data: amount=7.0, merchant=DUNKIN, date=2025-05-10, account_ids=['1c374f2347e580ac90aed5e1e7a86e32']
+2025-05-11 18:58:56,972 - __main__ - DEBUG - Parsed data: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:58:56,973 - __main__ - DEBUG - Adding to Notion: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:58:56,976 - __main__ - ERROR - Error in add_to_notion: name 'NOTION_API_KEY' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Windows 11\OneDrive\Laptop\Github\notion-automation\app.py", line 301, in add_to_notion
+    'Authorization': f'Bearer {NOTION_API_KEY}',
+                               ^^^^^^^^^^^^^^
+NameError: name 'NOTION_API_KEY' is not defined
+2025-05-11 18:58:56,979 - __main__ - ERROR - Error adding to Notion: name 'NOTION_API_KEY' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Windows 11\OneDrive\Laptop\Github\notion-automation\app.py", line 376, in process_sms
+    result = add_to_notion(parsed_data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Windows 11\OneDrive\Laptop\Github\notion-automation\app.py", line 301, in add_to_notion
+    'Authorization': f'Bearer {NOTION_API_KEY}',
+                               ^^^^^^^^^^^^^^
+NameError: name 'NOTION_API_KEY' is not defined
+2025-05-11 18:58:56,983 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:58:56] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2025-05-11 18:58:58,672 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:58:58] "GET / HTTP/1.1" 200 -
+2025-05-11 18:59:01,231 - __main__ - DEBUG - Processing message: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction ID: 142616666
+2025-05-11 18:59:01,232 - __main__ - DEBUG - Starting SMS parsing for text: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction ID: 142616666
+2025-05-11 18:59:01,233 - __main__ - DEBUG - Detected e&money message
+2025-05-11 18:59:01,233 - __main__ - DEBUG - Extracted amount: 7.0
+2025-05-11 18:59:01,233 - __main__ - DEBUG - Extracted merchant: DUNKIN
+2025-05-11 18:59:01,234 - __main__ - DEBUG - Extracted date using format %Y-%m-%d: 2025-05-10
+2025-05-11 18:59:01,234 - __main__ - DEBUG - Added E&money account ID
+2025-05-11 18:59:01,235 - __main__ - DEBUG - Final parsed data: amount=7.0, merchant=DUNKIN, date=2025-05-10, account_ids=['1c374f2347e580ac90aed5e1e7a86e32']
+2025-05-11 18:59:01,235 - __main__ - DEBUG - Parsed data: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:59:01,236 - __main__ - DEBUG - Adding to Notion: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:59:01,236 - __main__ - ERROR - Error in add_to_notion: name 'NOTION_API_KEY' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Windows 11\OneDrive\Laptop\Github\notion-automation\app.py", line 301, in add_to_notion
+    'Authorization': f'Bearer {NOTION_API_KEY}',
+                               ^^^^^^^^^^^^^^
+NameError: name 'NOTION_API_KEY' is not defined
+2025-05-11 18:59:01,238 - __main__ - ERROR - Error adding to Notion: name 'NOTION_API_KEY' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Windows 11\OneDrive\Laptop\Github\notion-automation\app.py", line 376, in process_sms
+    result = add_to_notion(parsed_data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Windows 11\OneDrive\Laptop\Github\notion-automation\app.py", line 301, in add_to_notion
+    'Authorization': f'Bearer {NOTION_API_KEY}',
+                               ^^^^^^^^^^^^^^
+NameError: name 'NOTION_API_KEY' is not defined
+2025-05-11 18:59:01,240 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:59:01] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2025-05-11 18:59:46,804 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Windows 11\\OneDrive\\Laptop\\Github\\notion-automation\\app.py', reloading
+2025-05-11 18:59:47,583 - werkzeug - WARNING -  * Debugger is active!
+2025-05-11 18:59:47,588 - werkzeug - INFO -  * Debugger PIN: 105-870-001
+2025-05-11 18:59:51,067 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-05-11 18:59:51,069 - werkzeug - INFO -  * Running on http://192.168.1.99:8080/ (Press CTRL+C to quit)
+2025-05-11 18:59:52,148 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:59:52] "GET / HTTP/1.1" 200 -
+2025-05-11 18:59:55,242 - __main__ - DEBUG - Processing message: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction ID: 142616666
+2025-05-11 18:59:55,243 - __main__ - DEBUG - Starting SMS parsing for text: Dear PHYO, a purchase of AED 7.00 was successfully completed at DUNKIN using your e& money card ending with 4736. 
+Date: 2025-05-10 21:59:24
+You earned AED 0.04 cash rewards with this transaction.
+Available balance: AED 155.87
+Transaction ID: 142616666
+2025-05-11 18:59:55,244 - __main__ - DEBUG - Detected e&money message
+2025-05-11 18:59:55,245 - __main__ - DEBUG - Extracted amount: 7.0
+2025-05-11 18:59:55,245 - __main__ - DEBUG - Extracted merchant: DUNKIN
+2025-05-11 18:59:55,249 - __main__ - DEBUG - Extracted date using format %Y-%m-%d: 2025-05-10
+2025-05-11 18:59:55,250 - __main__ - DEBUG - Added E&money account ID
+2025-05-11 18:59:55,250 - __main__ - DEBUG - Final parsed data: amount=7.0, merchant=DUNKIN, date=2025-05-10, account_ids=['1c374f2347e580ac90aed5e1e7a86e32']
+2025-05-11 18:59:55,251 - __main__ - DEBUG - Parsed data: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:59:55,252 - __main__ - DEBUG - Adding to Notion: {'amount': 7.0, 'merchant': 'DUNKIN', 'date': '2025-05-10', 'account_ids': ['1c374f2347e580ac90aed5e1e7a86e32']}
+2025-05-11 18:59:55,253 - __main__ - DEBUG - Created relations: [{'id': '1c374f2347e580ac90aed5e1e7a86e32'}]
+2025-05-11 18:59:55,253 - __main__ - DEBUG - Sending request to Notion API with payload: {'parent': {'database_id': 'd89a1b2bd6bd414abdb55ad021f9f467'}, 'properties': {'Expense Name': {'title': [{'text': {'content': 'DUNKIN'}}]}, 'Amount': {'number': 7.0}, 'Date': {'date': {'start': '2025-05-10'}}, 'Accounts': {'relation': [{'id': '1c374f2347e580ac90aed5e1e7a86e32'}]}}}
+2025-05-11 18:59:55,259 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.notion.com:443
+2025-05-11 18:59:57,057 - urllib3.connectionpool - DEBUG - https://api.notion.com:443 "POST /v1/pages HTTP/1.1" 200 None
+2025-05-11 18:59:57,059 - __main__ - DEBUG - Notion API response: {'object': 'page', 'id': '1f074f23-47e5-81dd-83b2-d8867e97cd98', 'created_time': '2025-05-11T14:59:00.000Z', 'last_edited_time': '2025-05-11T14:59:00.000Z', 'created_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'last_edited_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'cover': None, 'icon': None, 'parent': {'type': 'database_id', 'database_id': 'd89a1b2b-d6bd-414a-bdb5-5ad021f9f467'}, 'archived': False, 'in_trash': False, 'properties': {'Expense This Month': {'id': '%3BQ%5Bo', 'type': 'formula', 'formula': {'type': 'number', 'number': 7}}, '$ ': {'id': '%3DMHj', 'type': 'formula', 'formula': {'type': 'number', 'number': 1.91}}, 'Note': {'id': '%40mX%3D', 'type': 'rich_text', 'rich_text': []}, 'Record': {'id': 'J%7DN%7B', 'type': 'files', 'files': []}, 'month': {'id': 'WIBt', 'type': 'formula', 'formula': {'type': 'string', 'string': 'May'}}, 'Expense Type': {'id': 'X%3FRz', 'type': 'relation', 'relation': [], 'has_more': False}, 'Expense Last Month': {'id': '%5CG%3Ek', 'type': 'formula', 'formula': {'type': 'number', 'number': 0}}, 'Amount': {'id': 'pyo~', 'type': 'number', 'number': 7}, 'Accounts': {'id': 'xM%40_', 'type': 'relation', 'relation': [{'id': '1c374f23-47e5-80ac-90ae-d5e1e7a86e32'}], 'has_more': False}, 'Date': {'id': '%7Cwiz', 'type': 'date', 'date': {'start': '2025-05-10', 'end': None, 'time_zone': None}}, 'Expense Name': {'id': 'title', 'type': 'title', 'title': [{'type': 'text', 'text': {'content': 'DUNKIN', 'link': None}, 'annotations': {'bold': False, 'italic': False, 'strikethrough': False, 'underline': False, 'code': False, 'color': 'default'}, 'plain_text': 'DUNKIN', 'href': None}]}, 'Need/Want': {'id': '6dbd536d-8bd3-4082-aea1-4dfa6356258f', 'type': 'select', 'select': None}, 'Status': {'id': '9c0c1150-1553-4c5e-a8ac-cfb788397c5b', 'type': 'status', 'status': {'id': 'd044e0b4-9db1-4b13-a839-ce084a9e3792', 'name': 'To Pay', 'color': 'green'}}}, 'url': 'https://www.notion.so/DUNKIN-1f074f2347e581dd83b2d8867e97cd98', 'public_url': None, 'request_id': 'ddeb1d11-40fa-4bd4-8375-8327c7fb95cd'}
+2025-05-11 18:59:57,065 - __main__ - DEBUG - Notion API response: {'object': 'page', 'id': '1f074f23-47e5-81dd-83b2-d8867e97cd98', 'created_time': '2025-05-11T14:59:00.000Z', 'last_edited_time': '2025-05-11T14:59:00.000Z', 'created_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'last_edited_by': {'object': 'user', 'id': '98587e8b-28a0-400b-ac31-0931a3a902b5'}, 'cover': None, 'icon': None, 'parent': {'type': 'database_id', 'database_id': 'd89a1b2b-d6bd-414a-bdb5-5ad021f9f467'}, 'archived': False, 'in_trash': False, 'properties': {'Expense This Month': {'id': '%3BQ%5Bo', 'type': 'formula', 'formula': {'type': 'number', 'number': 7}}, '$ ': {'id': '%3DMHj', 'type': 'formula', 'formula': {'type': 'number', 'number': 1.91}}, 'Note': {'id': '%40mX%3D', 'type': 'rich_text', 'rich_text': []}, 'Record': {'id': 'J%7DN%7B', 'type': 'files', 'files': []}, 'month': {'id': 'WIBt', 'type': 'formula', 'formula': {'type': 'string', 'string': 'May'}}, 'Expense Type': {'id': 'X%3FRz', 'type': 'relation', 'relation': [], 'has_more': False}, 'Expense Last Month': {'id': '%5CG%3Ek', 'type': 'formula', 'formula': {'type': 'number', 'number': 0}}, 'Amount': {'id': 'pyo~', 'type': 'number', 'number': 7}, 'Accounts': {'id': 'xM%40_', 'type': 'relation', 'relation': [{'id': '1c374f23-47e5-80ac-90ae-d5e1e7a86e32'}], 'has_more': False}, 'Date': {'id': '%7Cwiz', 'type': 'date', 'date': {'start': '2025-05-10', 'end': None, 'time_zone': None}}, 'Expense Name': {'id': 'title', 'type': 'title', 'title': [{'type': 'text', 'text': {'content': 'DUNKIN', 'link': None}, 'annotations': {'bold': False, 'italic': False, 'strikethrough': False, 'underline': False, 'code': False, 'color': 'default'}, 'plain_text': 'DUNKIN', 'href': None}]}, 'Need/Want': {'id': '6dbd536d-8bd3-4082-aea1-4dfa6356258f', 'type': 'select', 'select': None}, 'Status': {'id': '9c0c1150-1553-4c5e-a8ac-cfb788397c5b', 'type': 'status', 'status': {'id': 'd044e0b4-9db1-4b13-a839-ce084a9e3792', 'name': 'To Pay', 'color': 'green'}}}, 'url': 'https://www.notion.so/DUNKIN-1f074f2347e581dd83b2d8867e97cd98', 'public_url': None, 'request_id': 'ddeb1d11-40fa-4bd4-8375-8327c7fb95cd'}
+2025-05-11 18:59:57,069 - werkzeug - INFO - 192.168.1.139 - - [11/May/2025 18:59:57] "POST /process HTTP/1.1" 200 -
