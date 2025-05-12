@@ -217,8 +217,7 @@ def parse_sms(text):
             amount_match = re.search(r'AED\s+([\d,]+\.\d+)[+-]', text)
             if amount_match:
                 amount = float(amount_match.group(1).replace(',', ''))
-                if text[amount_match.end()-1] == '-':
-                    amount = -amount
+                # Remove the logic that checks for a negative sign
                 logger.debug(f"Extracted amount: {amount}")
             
             # Extract date from HSBC format
@@ -234,7 +233,12 @@ def parse_sms(text):
                     logger.error(f"Date parsing error: {e} for date string: {date_str}")
                     date = None
             
-            merchant = "HSBC"
+            # Extract merchant name between date and "Purchase"
+            merchant_match = re.search(r'\d{2}[A-Za-z]{3}\d{2}\s+(.*?)\s+Purchase', text)
+            if merchant_match:
+                merchant = merchant_match.group(1).strip()
+                logger.debug(f"Extracted merchant: {merchant}")
+
             account_ids.append("433e6ffadc44482e811c989bff9b9812")
             logger.debug("Added HSBC account ID")
 
