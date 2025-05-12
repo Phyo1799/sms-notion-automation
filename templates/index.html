@@ -445,7 +445,7 @@
             }
         }
 
-        // Add message box with improved UI
+        // Add message box
         function addMessageBox() {
             const container = document.getElementById('messageContainer');
             const newBox = document.createElement('div');
@@ -611,6 +611,41 @@
                 isProcessing = false;
                 processButton.innerHTML = originalText;
                 processButton.disabled = false;
+            }
+        }
+
+        // Delete entry function
+        async function deleteEntry(pageId, button) {
+            if (!pageId) {
+                showToast('Invalid entry ID', 'error');
+                return;
+            }
+
+            const row = button.closest('tr');
+            row.style.opacity = '0.5'; // Visual feedback while processing
+
+            try {
+                const response = await fetch('/delete_entry', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ page_id: pageId }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    row.remove();
+                    showToast('Entry deleted successfully');
+                } else {
+                    showToast(data.error || 'Failed to delete entry', 'error');
+                    row.style.opacity = '1'; // Reset opacity on failure
+                }
+            } catch (error) {
+                console.error('Delete error:', error);
+                showToast('Error deleting entry', 'error');
+                row.style.opacity = '1'; // Reset opacity on error
             }
         }
 
@@ -786,14 +821,11 @@
 
         // Prevent accidental navigation away
         window.addEventListener('beforeunload', function(e) {
-            // Check if there are any messages in the textareas
             const messageBoxes = document.querySelectorAll('.message-box textarea');
             const hasMessages = Array.from(messageBoxes).some(box => box.value.trim().length > 0);
             
             if (hasMessages) {
-                // Standard way to show confirmation dialog
                 e.preventDefault();
-                // Chrome requires returnValue to be set
                 e.returnValue = '';
                 return '';
             }
@@ -806,7 +838,6 @@
             
             if (hasMessages) {
                 if (!confirm('You have unsaved messages. Are you sure you want to leave?')) {
-                    // If user cancels, push a new state to prevent navigation
                     history.pushState(null, '', window.location.href);
                 }
             }
@@ -816,8 +847,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             history.pushState(null, '', window.location.href);
         });
-
-        // Add the deleteEntry function
     </script>
 </body>
 </html> 
